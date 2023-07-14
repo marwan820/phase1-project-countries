@@ -2,10 +2,12 @@
 
 // Elements 
 const searchBar = document.querySelector("#search")
+const countryContainer = document.getElementsByClassName("country-container")
+console.log(countryContainer)
 
 
 // Function Calls
-//getSelection()
+getSelection()
 
 
 
@@ -25,3 +27,20 @@ function eventHandler(e){
 // Event Listeners
 
 searchBar.addEventListener("search", eventHandler)
+
+
+// Iterator Function
+// To create elements and Added to a forEach method
+
+//function iteratorFunction(countries){
+   // const title = countries.name
+   // const capital
+   // const currencies
+   // const languages
+   // const flags
+   // const maps
+   // const timeZones
+
+    
+    
+
