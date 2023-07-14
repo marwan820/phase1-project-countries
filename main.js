@@ -1,10 +1,12 @@
 // https://restcountries.com/v3.1/all
 
 // Elements 
+const searchBar = document.querySelector("#search")
 
 
 // Function Calls
-getSelection()
+//getSelection()
+
 
 
 // Collection Functions
@@ -15,12 +17,11 @@ function getSelection(){
 }
 
 // Render Functions
-////function renderCountry(countries){
-//    countries.forEach(country => {
-//        const Elements 
-//        
-//        
-//    });
-//}
+function eventHandler(e){
+    console.log(e.target.value)
+}
 
-``
+
+// Event Listeners
+
+searchBar.addEventListener("search", eventHandler)
