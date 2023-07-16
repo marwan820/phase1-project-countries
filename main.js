@@ -11,9 +11,9 @@ function getSelection(e){
     const userInput = e.target.value
     fetch(`https://restcountries.com/v3.1/name/${userInput}?fullText=true`)
     .then(res => res.json())
-    .then(data => iteratorFunction(data))
-    .catch(error =>  
-        errorMessage = `Country not found: ${error}`)}
+    .then(data => iteratorFunction(data))}
+    //.catch(error =>  
+       //const errorMessage = `Country not found: ${error}`)}
 
 
 function iteratorFunction(data){
@@ -29,7 +29,7 @@ const flagImage = document.createElement("img")
 flagImage.id = "img-flag"
 flagImage.src = country.flags.svg
 flagImage.rel = country.flags.rel
-flagImage.style.width = "50px"
+flagImage.style.width = "50%"
 
 const coatOfArms = document.createElement("img")
 coatOfArms.id = "img coatOfArms"
@@ -51,19 +51,25 @@ continent.id = "continent"
 continent.textContent =  ` Continents: ${country.continents}`
 
 
-const currencies = document.createElement("p")
-currencies.id = "currencies"
-currencies.textContent = `Currencies: ${country[currencies]}`
+const currenciesTag = document.createElement("p")
+currenciesTag.id = "currencies"
+const currencyKey = Object.keys(country.currencies)[0]
+const currencyName = country.currencies[currencyKey].name
+currenciesTag.textContent = `Currency: ${currencyName}`
+console.log(currencyKey)
 
 const languages = document.createElement("p")
 languages.id = "languages"
- let languagesdata = country.languages
-languages.textContent =  `Languages: ${languagesdata}`
+const languagesKey = Object.keys(country.languages)[0]
+const languageValue = country.languages[languagesKey]
+console.log(languageValue)
+languages.textContent = `Majority Language: ${languageValue}`
 
 
 const timeZones = document.createElement("p")
-timeZones.id = "timeZones"
-timeZones.textContent=  ` Time zone ${country.timeZones}`
+timeZones.id = "timezones"
+timeZones.textContent=  `Time zone ${country.timezones}`
+console.log(country)
 
 const mapLink = document.createElement("p")
 mapLink.id = "mapLink"
@@ -72,7 +78,7 @@ mapLink.rel = "Google map it"
 
 // Append
 countryContainer.append(title,flagImage,coatOfArms)
-dataText.append(capital,continent,currencies,mapLink,timeZones,languages)
+dataText.append(capital,continent,currenciesTag,mapLink,timeZones,languages)
 countryContainer.append(dataText)})}
     
 
