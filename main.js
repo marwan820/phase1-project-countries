@@ -3,7 +3,6 @@
 
 // Elements 
 // Create elements and Add to an Iterator
-const countryContainer = document.querySelector(".country-container")
 const searchBar = document.querySelector("#search")
 const searchButton = document.querySelector("#button")
 searchBar.addEventListener("search", getSelection)
@@ -19,10 +18,11 @@ searchBar.addEventListener("search", getSelection)
 
 // Collection Functions
 function getSelection(e){
-    console.log(e.target.value)
-    fetch('https://restcountries.com/v3.1/all')
+    const userInput = e.target.value
+    fetch(`https://restcountries.com/v3.1/name/${userInput}?fullText=true`)
     .then(res => res.json())
-    .then(data => iteratorFunction(data))}
+    .then(data => iteratorFunction(data))
+    .catch( error => console.log(error))}
 
 
 // Event Listeners
@@ -30,9 +30,9 @@ function getSelection(e){
 //searchBar.addEventListener("search", eventHandler)
 
 function iteratorFunction(data){
+    const countryContainer = document.querySelector(".country-container")
+    countryContainer.replaceChildren()
     data.forEach(country => {
-        
-    ;
    
 const title = document.createElement("h2")
 title.id = "title"
@@ -85,8 +85,7 @@ mapLink.rel = "Google map it"
 // Append
 countryContainer.append(title,flagImage,coatOfArms)
 dataText.append(capital,continent,currencies,mapLink,timeZones,languages)
-countryContainer.append(dataText)
-})}
+countryContainer.append(dataText)})}
     
 
 
