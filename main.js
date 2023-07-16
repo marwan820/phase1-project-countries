@@ -4,16 +4,13 @@
 // Elements 
 // Create elements and Add to an Iterator
 const countryContainer = document.querySelector(".country-container")
-
-
-
 const searchBar = document.querySelector("#search")
+const searchButton = document.querySelector("#button")
+searchBar.addEventListener("search", handlerFunction)
 
-
-
+function handlerFunction(e){ console.log(e.target.value)}
 // Function Calls
 getSelection()
-//iteratorFunction()
 
 
 
@@ -22,11 +19,6 @@ function getSelection(){
     fetch("https://restcountries.com/v3.1/all")
     .then(res => res.json())
     .then(data => iteratorFunction(data))}
-
-// Render Functions
-//function eventHandler(e){
-//    console.log(e.target.value)
-//}
 
 
 // Event Listeners
@@ -41,7 +33,7 @@ function iteratorFunction(data){
 const title = document.createElement("h2")
 title.id = "title"
 title.textContent = country.name.common
-console.log(title)
+
 
 
 const flagImage = document.createElement("img")
@@ -51,7 +43,7 @@ flagImage.rel = country.flags.rel
 
 const coatOfArms = document.createElement("img")
 coatOfArms.id = "img coatOfArms"
-coatOfArms.src = coatOfArms.svg
+coatOfArms.src = country.coatOfArms.svg
 
 // Section for information about countries 
 const dataText = document.createElement("div")
@@ -69,11 +61,12 @@ continent.textContent =  ` Continents: ${country.continents}`
 
 const currencies = document.createElement("p")
 currencies.id = "currencies"
-currencies.textContent = `Currencies: ${country.currencies}`
+currencies.textContent = `Currencies: ${country.currencies[1]}`
 
 const languages = document.createElement("p")
 languages.id = "languages"
-languages.textContent =  `Languages: ${country.languages}`
+ let languagesdata = country.languages
+languages.textContent =  `Languages: ${languagesdata[0]}`
 
 
 const timeZones = document.createElement("p")
@@ -86,6 +79,7 @@ mapLink.href = country.maps
 mapLink.rel = "Google map it"
 
 // Append
+countryContainer.append(title,flagImage,coatOfArms)
 dataText.append(capital,continent,currencies,mapLink,timeZones,languages)
 countryContainer.append(dataText)
 })}
