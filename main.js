@@ -6,17 +6,21 @@
 const countryContainer = document.querySelector(".country-container")
 const searchBar = document.querySelector("#search")
 const searchButton = document.querySelector("#button")
-searchBar.addEventListener("search", handlerFunction)
+searchBar.addEventListener("search", getSelection)
 
-function handlerFunction(e){ console.log(e.target.value)}
+//function handlerFunction(){ 
+    //const userInput = e.target.value
+
+    // console.log(e.target.value)}
 // Function Calls
-getSelection()
+//getSelection()
 
 
 
 // Collection Functions
-function getSelection(){
-    fetch("https://restcountries.com/v3.1/all")
+function getSelection(e){
+    console.log(e.target.value)
+    fetch('https://restcountries.com/v3.1/all')
     .then(res => res.json())
     .then(data => iteratorFunction(data))}
 
