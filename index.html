@@ -9,20 +9,31 @@
 <body>
 <header class = "header">
     <h1>Country Wiki</h1>
+    <p id = "subheader">"Hello,World!"</p>
 </header>
+<br>
 <!--search-->
-<form action=""></form>
-<label for="search">Search Country </label>
-<input type="search"  id="search" name="searchField" placeholder="Search by country name">
-<button id="button">Search</button>
-
-
+<form  id = "search">
+    <label for="search-input">Search Country </label>
+<input type="text" name="search-input" id="search-input" placeholder="Search by country name"></input>
+<input type="submit"></input >
+</form>
+<form id="select-form">
+    <label for="country-select">Choose a country</label>
+    <select name = "countries" id = "country-select">
+        <option value="">Please choose a country</option>
+        <option value="">Please choose a country</option>
+        <option value="">Please choose a country</option>
+        <option value="">Please choose a country</option>
+        <option value="">Please choose a country</option>
+        <option value="">Please choose a country</option>
+        <option value="">Please choose a country</option>
+        
+    </select>
+</form>
 <!---------->
-
 <!-- Display Divs-->
-<section>
-<div class="country-container">
-    </div>
+<section class = "country-container"></section>
 
 
 
