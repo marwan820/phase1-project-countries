@@ -10,7 +10,6 @@
 - [] Style it, give it some color and flavor 
 - [] Separate the images 
 - [] Find out if its better to give attributes on html or javascript
-- [] map link issue still not working
 - [] click on header to reset the page
 - 
 # Project Requirements:

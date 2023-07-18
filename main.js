@@ -2,13 +2,19 @@
 // API by name https://restcountries.com/v3.1/name/aruba?fullText=true
 
 // Elements 
-const searchBar = document.querySelector("#search")
-const searchButton = document.querySelector("#button")
-searchBar.addEventListener("search", getSelection)
+const searchField = document.querySelector("#search")
+
+
+// Event Listener 
+searchField.addEventListener("submit", getSelection)
 
 // Collection Functions
 function getSelection(e){
-    const userInput = e.target.value
+    e.preventDefault()
+
+    const userInput = e.target[0].value
+    console.log(userInput)
+    debugger
     fetch(`https://restcountries.com/v3.1/name/${userInput}?fullText=true`)
     .then(res => res.json())
     .then(data => iteratorFunction(data))}
@@ -21,13 +27,16 @@ function getSelection(e){
 function iteratorFunction(data){
     const countryContainer = document.querySelector(".country-container")
     countryContainer.replaceChildren()
+
+    console.log(data)
+
+    
     data.forEach(country => {
 
-        console.log(country.altSpellings[1])
    
-const title = document.createElement("h2")
-title.id = "title"
-title.textContent = country.name.common
+const countryTitle = document.createElement("h2")
+countryTitle.id = "country-title"
+countryTitle.textContent = country.name.common
 
 const flagImage = document.createElement("img")
 flagImage.id = "img-flag"
@@ -75,7 +84,6 @@ languages.textContent = `Majority Language: ${languageValue}`
 const timeZones = document.createElement("p")
 timeZones.id = "timezones"
 timeZones.textContent=  `Time zone ${country.timezones}`
-console.log(country)
 
 const mapLink = document.createElement("a")
 mapLink.id = "mapLink"
@@ -83,9 +91,8 @@ mapLink.href = country.maps.googleMaps
 mapLink.textContent = "Google map"
 mapLink.target = "blank"
 
-console.log(mapLink)
 // Append
-countryContainer.append(title,flagImage,coatOfArms,captionCoatOfArms)
+countryContainer.append(countryTitle,flagImage,coatOfArms,captionCoatOfArms)
 dataText.append(capital,continent,languages,currenciesTag,timeZones,mapLink,)
 countryContainer.append(dataText)})}
     
