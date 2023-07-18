@@ -3,18 +3,19 @@
 
 // Elements 
 const searchField = document.querySelector("#search")
+const header = document.querySelector("header")
+console.log(header)
 
 
 // Event Listener 
 searchField.addEventListener("submit", getSelection)
 
+
 // Collection Functions
 function getSelection(e){
     e.preventDefault()
-
     const userInput = e.target[0].value
-    console.log(userInput)
-    debugger
+
     fetch(`https://restcountries.com/v3.1/name/${userInput}?fullText=true`)
     .then(res => res.json())
     .then(data => iteratorFunction(data))}
@@ -28,12 +29,8 @@ function iteratorFunction(data){
     const countryContainer = document.querySelector(".country-container")
     countryContainer.replaceChildren()
 
-    console.log(data)
-
-    
     data.forEach(country => {
 
-   
 const countryTitle = document.createElement("h2")
 countryTitle.id = "country-title"
 countryTitle.textContent = country.name.common
@@ -54,10 +51,9 @@ captionCoatOfArms.classList = "coatOfArms-text"
 captionCoatOfArms.textContent = "Coat of Arms"
 
 
-// Section for information about countries 
-const dataText = document.createElement("div")
+// Section for  text information about countries 
+const dataText = document.createElement("section")
 dataText.classList = "dataText"
-//
 
 const capital = document.createElement("p")
 capital.id = "capital"
@@ -95,6 +91,10 @@ mapLink.target = "blank"
 countryContainer.append(countryTitle,flagImage,coatOfArms,captionCoatOfArms)
 dataText.append(capital,continent,languages,currenciesTag,timeZones,mapLink,)
 countryContainer.append(dataText)})}
+
+function showWelcome(){
+
+}
     
 
 
