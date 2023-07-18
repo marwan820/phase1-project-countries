@@ -10,8 +10,12 @@
 - [] Write a catch message, when a user input doesnt match with database
 - [] Style it, give it some color and flavor 
 - [] Separate the images 
-- [] Find out if its better to give attributes on html or javascript
+- [x] Find out if its better to give attributes on html or javascript
 - [] click on header to reset the page
+- [] write a function for the select 
+- 
+- [] event listener for the select, whichever country gets chosen by user, will get the country information by country name
+- 
 - 
 # Project Requirements:
 - [x]   Your app must be an HTML/CSS/JS frontend that accesses data from a public API or from your own API built using json-server and a db.json file.

@@ -5,7 +5,8 @@
 const searchField = document.querySelector("#search")
 const header = document.querySelector("header")
 console.log(header)
-const select
+const selectCountry = document.querySelector(".country-select")
+// selectCountry.addEventListener("change",
 
 
 // Event Listener 
