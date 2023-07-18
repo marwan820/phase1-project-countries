@@ -1,6 +1,7 @@
 # Goals
 - [x] Create a page where a user can search a counries information by entering a country name in a search field
-- 
+- [ ] Create a selection box, for the user to scroll through the countries by name
+- [ ] create a back to home page, click event on the header
 
 
 

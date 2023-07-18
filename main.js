@@ -5,14 +5,15 @@
 const searchField = document.querySelector("#search")
 const header = document.querySelector("header")
 console.log(header)
+const select
 
 
 // Event Listener 
-searchField.addEventListener("submit", getSelection)
+searchField.addEventListener("submit", getSearch)
 
 
 // Collection Functions
-function getSelection(e){
+function getSearch(e){
     e.preventDefault()
     const userInput = e.target[0].value
 
@@ -79,7 +80,7 @@ languages.textContent = `Majority Language: ${languageValue}`
 
 const timeZones = document.createElement("p")
 timeZones.id = "timezones"
-timeZones.textContent=  `Time zone ${country.timezones}`
+timeZones.textContent=  `Time zones ${country.timezones}`
 
 const mapLink = document.createElement("a")
 mapLink.id = "mapLink"
@@ -92,7 +93,8 @@ countryContainer.append(countryTitle,flagImage,coatOfArms,captionCoatOfArms)
 dataText.append(capital,continent,languages,currenciesTag,timeZones,mapLink,)
 countryContainer.append(dataText)})}
 
-function showWelcome(){
+
+function showWelcome(){ 
 
 }
     
