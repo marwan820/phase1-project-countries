@@ -4,7 +4,7 @@
 }
 
 
-h1 {
+header {
     display: block;
     font-size: 2em;
     margin-block-start: 0.67em;
@@ -13,5 +13,4 @@ h1 {
     margin-inline-end: 0px;
     font-weight: 220 ;
 }
-
-}
+#subheader
