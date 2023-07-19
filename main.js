@@ -4,20 +4,34 @@
 // Elements 
 const searchField = document.querySelector("#search")
 const header = document.querySelector("header")
+
 const selectCountry = document.querySelector("#country-select")
 
-// selectCountry.addEventListener("change",
+selectCountry.addEventListener("change", chooseCountry)
+
+//Dropdown functions
+function chooseCountry(e){
+    const countryOption = e.target.value
+    fetch(`https://restcountries.com/v3.1/name/${countryOption}?fullText=true`)
+    .then(response => response.json())
+
+    .then(data => renderFunction(data))
+
+}
 
 // Function Calls
 getCountries()
 
- function getCountries(){
+ 
+    function getCountries(){
+
     fetch("https://restcountries.com/v3.1/all")
     .then(response => response.json())
-    .then(data => countrySelect(data))
+    .then(data => renderCountriesDropDown(data))
 }
 
- function countrySelect(data){
+ function renderCountriesDropDown(data){
+
     data.forEach(country => {
 
         const option = document.createElement("option")
@@ -38,16 +52,17 @@ function getSearch(e){
 
     fetch(`https://restcountries.com/v3.1/name/${userInput}?fullText=true`)
     .then(res => res.json())
-    .then(data => iteratorFunction(data))}
+    .then(data => renderFunction(data))}
     //.catch(error =>  
        //const errorMessage = `Country not found: ${error}`)}
     
 
 
 
-function iteratorFunction(data){
+function renderFunction(data){
     const countryContainer = document.querySelector(".country-container")
     countryContainer.replaceChildren()
+    
 
     data.forEach(country => {
 
