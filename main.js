@@ -3,10 +3,12 @@
 
 // Elements 
 const searchField = document.querySelector("#search")
-const header = document.querySelector("header")
-
+ // for showWelcome function, when user click main title the dom resets or refreshes 
+ const header = document.querySelector("header")
 const selectCountry = document.querySelector("#country-select")
 
+// Event Listener 
+searchField.addEventListener("submit", getSearch)
 selectCountry.addEventListener("change", chooseCountry)
 
 //Dropdown functions
@@ -15,7 +17,7 @@ function chooseCountry(e){
     fetch(`https://restcountries.com/v3.1/name/${countryOption}?fullText=true`)
     .then(response => response.json())
 
-    .then(data => renderFunction(data))
+    .then(data => displayValues(data))
 
 }
 
@@ -23,14 +25,26 @@ function chooseCountry(e){
 getCountries()
 
  
-    function getCountries(){
+// Collecting Data Fetch Functions
+    function getSearch(e){
+    e.preventDefault()
+    const userInput = e.target[0].value
 
-    fetch("https://restcountries.com/v3.1/all")
-    .then(response => response.json())
-    .then(data => renderCountriesDropDown(data))
+    fetch(`https://restcountries.com/v3.1/name/${userInput}?fullText=true`)
+    .then(res => res.json())
+    .then(data => displayValues(data))}
+    //.catch(error =>  
+       //const errorMessage = `Country not found: ${error}`)}
+
+    
+    function getCountries(){
+        fetch("https://restcountries.com/v3.1/all")
+        .then(response => response.json())
+        .then(data => renderCountriesDropDown(data))
 }
 
- function renderCountriesDropDown(data){
+// Render iterator method 
+function renderCountriesDropDown(data){
 
     data.forEach(country => {
 
@@ -41,29 +55,11 @@ getCountries()
         
     })}
 
-// Event Listener 
-searchField.addEventListener("submit", getSearch)
 
-
-// Collection Functions
-function getSearch(e){
-    e.preventDefault()
-    const userInput = e.target[0].value
-
-    fetch(`https://restcountries.com/v3.1/name/${userInput}?fullText=true`)
-    .then(res => res.json())
-    .then(data => renderFunction(data))}
-    //.catch(error =>  
-       //const errorMessage = `Country not found: ${error}`)}
-    
-
-
-
-function renderFunction(data){
+function displayValues(data){
     const countryContainer = document.querySelector(".country-container")
     countryContainer.replaceChildren()
     
-
     data.forEach(country => {
 
 const countryName = document.createElement("h2")
@@ -74,13 +70,13 @@ const flagImage = document.createElement("img")
 flagImage.id = "img-flag"
 flagImage.src = country.flags.svg
 flagImage.rel = country.flags.rel
-flagImage.style.width = "50%"
+flagImage.style.width = "25%"
 
 
 const coatOfArms = document.createElement("img")
 coatOfArms.id = "img coatOfArms"
 coatOfArms.src = country.coatOfArms.svg
-coatOfArms.style.width = "20%"
+coatOfArms.style.width = "10%"
 const captionCoatOfArms = document.createElement("figcaption")
 captionCoatOfArms.classList = "coatOfArms-text"
 captionCoatOfArms.textContent = "Coat of Arms"
