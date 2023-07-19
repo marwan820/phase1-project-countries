@@ -4,10 +4,28 @@
 // Elements 
 const searchField = document.querySelector("#search")
 const header = document.querySelector("header")
-console.log(header)
-const selectCountry = document.querySelector(".country-select")
+const selectCountry = document.querySelector("#country-select")
+
 // selectCountry.addEventListener("change",
 
+// Function Calls
+getCountries()
+
+ function getCountries(){
+    fetch("https://restcountries.com/v3.1/all")
+    .then(response => response.json())
+    .then(data => countrySelect(data))
+}
+
+ function countrySelect(data){
+    data.forEach(country => {
+
+        const option = document.createElement("option")
+        option.value = country.name.common
+        option.textContent = country.name.common
+        selectCountry.append(option)
+        
+    })}
 
 // Event Listener 
 searchField.addEventListener("submit", getSearch)
@@ -95,9 +113,5 @@ dataText.append(capital,continent,languages,currenciesTag,timeZones,mapLink,)
 countryContainer.append(dataText)})}
 
 
-function showWelcome(){ 
-
-}
-    
 
 
