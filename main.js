@@ -33,9 +33,9 @@ function iteratorFunction(data){
 
     data.forEach(country => {
 
-const countryTitle = document.createElement("h2")
-countryTitle.id = "country-title"
-countryTitle.textContent = country.name.common
+const countryName = document.createElement("h2")
+countryName.id = "country-name"
+countryName.textContent = country.name.common
 
 const flagImage = document.createElement("img")
 flagImage.id = "img-flag"
@@ -90,7 +90,7 @@ mapLink.textContent = "Google map"
 mapLink.target = "blank"
 
 // Append
-countryContainer.append(countryTitle,flagImage,coatOfArms,captionCoatOfArms)
+countryContainer.append(countryName,flagImage,coatOfArms,captionCoatOfArms)
 dataText.append(capital,continent,languages,currenciesTag,timeZones,mapLink,)
 countryContainer.append(dataText)})}
 
