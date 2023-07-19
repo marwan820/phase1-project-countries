@@ -4,33 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Country Wiki</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
 <header class = "header">
-    <h1>Country Wiki</h1>
-    <p id = "subheader">"Hello,World!"</p>
+    <h1  id="title">Country Wiki</h1>
+    <p id="subheader">"Hello,World!"</p>
 </header>
+    
+
 <br>
 <!--search-->
 <form  id = "search">
-    <label for="search-input">Search Country </label>
-<input type="text" name="search-input" id="search-input" placeholder="Search by country name"></input>
-<input type="submit"></input >
+    <label for="search-input">Search Country</label>
+    <input type="text" name="search-input" id="search-input" placeholder="Search by country name"></input>
+    <input type="submit" id ="search-button" value="Search"></input >
 </form>
-<form id="select-form">
-    <label for="country-select">Choose a country</label>
-    <select name = "countries" id = "country-select">
-        <option value="">Please choose a country</option>
-        <option value="">Please choose a country</option>
-        <option value="">Please choose a country</option>
-        <option value="">Please choose a country</option>
-        <option value="">Please choose a country</option>
-        <option value="">Please choose a country</option>
-        <option value="">Please choose a country</option>
-        
-    </select>
-</form>
+
+<!--Dropdown-->
+<select name="countries" id="country-select">
+    <option aria-placeholder="">Please choose a country</option>
+    
+</select>
 <!---------->
 <!-- Display Divs-->
 <section class = "country-container"></section>
