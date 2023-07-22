@@ -57,7 +57,7 @@ function renderCountriesDropDown(data){
 
 
 function displayValues(data){
-    const countryContainer = document.querySelector(".country-container")
+    const countryContainer = document.querySelector(".container")
     countryContainer.replaceChildren()
     
     data.forEach(country => {
