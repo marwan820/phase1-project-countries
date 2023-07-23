@@ -2,10 +2,9 @@
 // API by name https://restcountries.com/v3.1/name/aruba?fullText=true
 
 // Elements 
-const searchField = document.querySelector("#search")
- // for showWelcome function, when user click main title the dom resets or refreshes 
- const header = document.querySelector("header")
-const selectCountry = document.querySelector("#country-select")
+const searchField = document.querySelector("#search") 
+const header = document.querySelector("header")
+const selectCountry = document.querySelector(".form-select")
 
 // Event Listener 
 searchField.addEventListener("submit", getSearch)
