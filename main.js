@@ -57,6 +57,8 @@ function displayValues(data){
     const cardBody = document.querySelector(".card-body")
     const list = document.querySelector(".list-group")
     cardBody.replaceChildren()
+    //countryCard.replaceChildren()
+
     list.replaceChildren()
     data.forEach(country => {
         
@@ -75,9 +77,6 @@ const coatOfArms = document.createElement("img")
 coatOfArms.id = "img coatOfArms"
 coatOfArms.src = country.coatOfArms.svg
 coatOfArms.style.width = "10%"
-const captionCoatOfArms = document.createElement("figcaption")
-captionCoatOfArms.classList = "coatOfArms-text"
-captionCoatOfArms.textContent = "Coat of Arms"
 
 
 // Section for  text information about countries 
