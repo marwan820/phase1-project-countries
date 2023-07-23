@@ -2,9 +2,10 @@
 // API by name https://restcountries.com/v3.1/name/aruba?fullText=true
 
 // Elements 
-const searchField = document.querySelector("#search") 
-const header = document.querySelector("header")
-const selectCountry = document.querySelector(".form-select")
+const searchField = document.querySelector("#search")
+ // for showWelcome function, when user click main title the dom resets or refreshes 
+ const header = document.querySelector("header")
+const selectCountry = document.querySelector("#country-select")
 
 // Event Listener 
 searchField.addEventListener("submit", getSearch)
@@ -53,22 +54,19 @@ function renderCountriesDropDown(data){
         selectCountry.append(option)
         
     })}
-    
-    
-    function displayValues(data){
-        const countryContainer = document.querySelector(".container")
-        countryContainer.replaceChildren()
-        // Section for  text information about countries 
-        
-        const dataText = document.querySelector(".card")
 
-        data.forEach(country => {
-        
-        const countryName = document.createElement("h2")
-        countryName.class= "card-title"
-        countryName.textContent = country.name.common
-        
-        const flagImage = document.createElement("img")
+
+function displayValues(data){
+    const countryContainer = document.querySelector(".country-container")
+    countryContainer.replaceChildren()
+    
+    data.forEach(country => {
+
+const countryName = document.createElement("h2")
+countryName.id = "country-name"
+countryName.textContent = country.name.common
+
+const flagImage = document.createElement("img")
 flagImage.id = "img-flag"
 flagImage.src = country.flags.svg
 flagImage.rel = country.flags.rel
@@ -84,6 +82,9 @@ captionCoatOfArms.classList = "coatOfArms-text"
 captionCoatOfArms.textContent = "Coat of Arms"
 
 
+// Section for  text information about countries 
+const dataText = document.createElement("section")
+dataText.classList = "dataText"
 
 const capital = document.createElement("p")
 capital.id = "capital"
@@ -118,10 +119,6 @@ mapLink.textContent = "Google map"
 mapLink.target = "blank"
 
 // Append
-
-dataText.append(countryName,flagImage,coatOfArms,captionCoatOfArms,capital,continent,languages,currenciesTag,timeZones,mapLink,)
+countryContainer.append(countryName,flagImage,coatOfArms,captionCoatOfArms)
+dataText.append(capital,continent,languages,currenciesTag,timeZones,mapLink,)
 countryContainer.append(dataText)})}
-
-
-
-
