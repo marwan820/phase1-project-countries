@@ -1,4 +1,7 @@
 # ToDo
+
+
+
 - [x] Separate the images --
 - [x] add background color on h1 #title
 - [x] Create a page where a user can search a counries information by entering a country name in a search field
