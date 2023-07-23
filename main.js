@@ -3,7 +3,7 @@
 
 // Elements 
 const searchField = document.querySelector("#search")
-const selectCountry = document.querySelector("#country-select")
+const selectCountry = document.querySelector(".form-select")
 
 // Event Listener 
 searchField.addEventListener("submit", getSearch)
@@ -22,7 +22,7 @@ getCountries()
 
  
 // Collecting Data Fetch Functions
-    function getSearch(e){
+function getSearch(e){
     e.preventDefault()
     const userInput = e.target[0].value
 
@@ -33,13 +33,13 @@ getCountries()
        //const errorMessage = `Country not found: ${error}`)}
 
     
-    function getCountries(){
+function getCountries(){
         fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
         .then(data => renderCountriesDropDown(data))
 }
 
-// Render iterator method 
+// Render and Iterator functions
 function renderCountriesDropDown(data){
 
     data.forEach(country => {
@@ -62,61 +62,56 @@ function displayValues(data){
     list.replaceChildren()
     data.forEach(country => {
         
-        const countryName = document.createElement("h2")
-        countryName.class = "card-title"
-        countryName.textContent = country.name.common
+    const countryName = document.createElement("h2")
+    countryName.class = "card-title"
+    countryName.textContent = country.name.common
 
-const flagImage = document.createElement("img")
-flagImage.id = "img-flag"
-flagImage.src = country.flags.svg
-flagImage.rel = country.flags.rel
-flagImage.style.width = "25%"
-
-
-const coatOfArms = document.createElement("img")
-coatOfArms.id = "img coatOfArms"
-coatOfArms.src = country.coatOfArms.svg
-coatOfArms.style.width = "10%"
-
-
-// Section for  text information about countries 
-
-
-
-
-const capital = document.createElement("li")
-capital.class= "list-group-item"
-capital.textContent = `Capital: ${country.capital}`
-
-const continent = document.createElement("li")
-continent.class= "list-group-item"
-continent.textContent =  ` Continents: ${country.continents}`
-
-
-const currenciesTag = document.createElement("li")
-currenciesTag.class= "list-group-item"
-const currencyKey = Object.keys(country.currencies)[0]
-const currencyName = country.currencies[currencyKey].name
-currenciesTag.textContent = `Currency: ${currencyName}`
-
-const languages = document.createElement("li")
-languages.class= "list-group-item"
-const languagesKey = Object.keys(country.languages)[0]
-const languageValue = country.languages[languagesKey]
-languages.textContent = `Majority Language: ${languageValue}`
-
-
-const timeZones = document.createElement("li")
-timeZones.class= "list-group-item"
-timeZones.textContent=  `Time zones ${country.timezones}`
-
-const mapLink = document.createElement("a")
-mapLink.class= "list-group-item"
-mapLink.href = country.maps.googleMaps
-mapLink.textContent = "Google map"
-mapLink.target = "blank"
-
-// Append
-list.append(capital,continent,languages,currenciesTag,timeZones)
-cardBody.append(countryName,flagImage,coatOfArms,captionCoatOfArms,list,mapLink)
-countryCard.append(cardBody)})}
+    const flagImage = document.createElement("img")
+    flagImage.id = "img-flag"
+    flagImage.src = country.flags.svg
+    flagImage.rel = country.flags.rel
+    flagImage.style.width = "25%"
+    flagImage.style.padding = "10px"
+        
+        
+    const coatOfArms = document.createElement("img")
+    coatOfArms.id = "img coatOfArms"
+    coatOfArms.src = country.coatOfArms.svg
+    coatOfArms.style.width = "10%"
+        
+        
+        
+    // Section for  text information about countries 
+        
+    const capital = document.createElement("li")
+    capital.class= "list-group-item"
+    capital.textContent = `Capital: ${country.capital}`
+        
+    const continent = document.createElement("li")
+    continent.class= "list-group-item"
+    continent.textContent =  ` Continents: ${country.continents}`
+        
+        
+    const currenciesTag = document.createElement("li")
+    currenciesTag.class= "list-group-item"
+    const currencyKey = Object.keys(country.currencies)[0]
+    const currencyName = country.currencies[currencyKey].name
+    currenciesTag.textContent = `Currency: ${currencyName}`
+        
+    const languages = document.createElement("li")
+    languages.class= "list-group-item"
+    const languagesKey = Object.keys(country.languages)[0]
+    const languageValue = country.languages[languagesKey]
+    languages.textContent = `Majority Language: ${languageValue}`
+        
+    const mapLink = document.createElement("a")
+    mapLink.class= "list-group-item"
+    mapLink.href = country.maps.googleMaps
+    mapLink.textContent = "Google map"
+    mapLink.target = "blank"
+        
+    // Append
+    list.append(capital,continent,languages,currenciesTag)
+    cardBody.append(countryName,flagImage,coatOfArms,list,mapLink)
+    countryCard.append(cardBody)
+})}
