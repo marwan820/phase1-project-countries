@@ -3,8 +3,6 @@
 
 // Elements 
 const searchField = document.querySelector("#search")
- // for showWelcome function, when user click main title the dom resets or refreshes 
- const header = document.querySelector("header")
 const selectCountry = document.querySelector("#country-select")
 
 // Event Listener 
@@ -16,9 +14,7 @@ function chooseCountry(e){
     const countryOption = e.target.value
     fetch(`https://restcountries.com/v3.1/name/${countryOption}?fullText=true`)
     .then(response => response.json())
-
     .then(data => displayValues(data))
-
 }
 
 // Function Calls
@@ -58,14 +54,14 @@ function renderCountriesDropDown(data){
 
 function displayValues(data){
     const countryCard = document.querySelector(".card")
-    //countryContainer.replaceChildren()
     const cardBody = document.querySelector(".card-body")
+    const list = document.querySelector(".list-group")
     cardBody.replaceChildren()
-    
+    list.replaceChildren()
     data.forEach(country => {
         
         const countryName = document.createElement("h2")
-        countryName.id = "country-name"
+        countryName.class = "card-title"
         countryName.textContent = country.name.common
 
 const flagImage = document.createElement("img")
@@ -86,38 +82,42 @@ captionCoatOfArms.textContent = "Coat of Arms"
 
 // Section for  text information about countries 
 
-const capital = document.createElement("p")
-capital.id = "capital"
+
+
+
+const capital = document.createElement("li")
+capital.class= "list-group-item"
 capital.textContent = `Capital: ${country.capital}`
 
-const continent = document.createElement("p")
-continent.id = "continent"
+const continent = document.createElement("li")
+continent.class= "list-group-item"
 continent.textContent =  ` Continents: ${country.continents}`
 
 
-const currenciesTag = document.createElement("p")
-currenciesTag.id = "currencies"
+const currenciesTag = document.createElement("li")
+currenciesTag.class= "list-group-item"
 const currencyKey = Object.keys(country.currencies)[0]
 const currencyName = country.currencies[currencyKey].name
 currenciesTag.textContent = `Currency: ${currencyName}`
 
-const languages = document.createElement("p")
-languages.id = "languages"
+const languages = document.createElement("li")
+languages.class= "list-group-item"
 const languagesKey = Object.keys(country.languages)[0]
 const languageValue = country.languages[languagesKey]
 languages.textContent = `Majority Language: ${languageValue}`
 
 
-const timeZones = document.createElement("p")
-timeZones.id = "timezones"
+const timeZones = document.createElement("li")
+timeZones.class= "list-group-item"
 timeZones.textContent=  `Time zones ${country.timezones}`
 
 const mapLink = document.createElement("a")
-mapLink.id = "mapLink"
+mapLink.class= "list-group-item"
 mapLink.href = country.maps.googleMaps
 mapLink.textContent = "Google map"
 mapLink.target = "blank"
 
 // Append
-cardBody.append(countryName,flagImage,coatOfArms,captionCoatOfArms,capital,continent,languages,currenciesTag,timeZones,mapLink,)
+list.append(capital,continent,languages,currenciesTag,timeZones)
+cardBody.append(countryName,flagImage,coatOfArms,captionCoatOfArms,list,mapLink)
 countryCard.append(cardBody)})}
