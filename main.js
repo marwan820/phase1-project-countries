@@ -53,19 +53,22 @@ function renderCountriesDropDown(data){
         selectCountry.append(option)
         
     })}
-
-
-function displayValues(data){
-    const countryContainer = document.querySelector(".container")
-    countryContainer.replaceChildren()
     
-    data.forEach(country => {
+    
+    function displayValues(data){
+        const countryContainer = document.querySelector(".container")
+        countryContainer.replaceChildren()
+        // Section for  text information about countries 
+        
+        const dataText = document.querySelector(".card")
 
-const countryName = document.createElement("h2")
-countryName.id = "country-name"
-countryName.textContent = country.name.common
-
-const flagImage = document.createElement("img")
+        data.forEach(country => {
+        
+        const countryName = document.createElement("h2")
+        countryName.class= "card-title"
+        countryName.textContent = country.name.common
+        
+        const flagImage = document.createElement("img")
 flagImage.id = "img-flag"
 flagImage.src = country.flags.svg
 flagImage.rel = country.flags.rel
@@ -81,9 +84,6 @@ captionCoatOfArms.classList = "coatOfArms-text"
 captionCoatOfArms.textContent = "Coat of Arms"
 
 
-// Section for  text information about countries 
-const dataText = document.createElement("section")
-dataText.classList = "dataText"
 
 const capital = document.createElement("p")
 capital.id = "capital"
@@ -118,8 +118,8 @@ mapLink.textContent = "Google map"
 mapLink.target = "blank"
 
 // Append
-countryContainer.append(countryName,flagImage,coatOfArms,captionCoatOfArms)
-dataText.append(capital,continent,languages,currenciesTag,timeZones,mapLink,)
+
+dataText.append(countryName,flagImage,coatOfArms,captionCoatOfArms,capital,continent,languages,currenciesTag,timeZones,mapLink,)
 countryContainer.append(dataText)})}
 
 
