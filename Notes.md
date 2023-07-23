@@ -1,14 +1,14 @@
 # ToDo
-- [] Separate the images --
-- [] add dark grey  background color on h1 #title
+- [x] Separate the images --
+- [x] add background color on h1 #title
 - [x] Create a page where a user can search a counries information by entering a country name in a search field
 - [x] Create a selection box, for the user to scroll through the countries by name
-- [ ] Clean up the code, organize it and leave comments
-- [ ] create a back to home page, some type click event on the header
-- [ ] sort the option values alphabatically, a-z 
+- [] Clean up the code, organize it and leave comments
+- [] create a back to home page, some type click event on the header
+- [] sort the option values alphabatically, a-z 
 - [x] Create a search bar to enter countries name 
 - [] Write a catch message, when a user input doesnt match with database
-- [] Style it, give it some color and flavor 
+- [x] Style it, give it some color and flavor 
 - [x] Find out if its better to give attributes on html or javascript
 - [] click on header to reset the page
 - [x] write a function for the select 
