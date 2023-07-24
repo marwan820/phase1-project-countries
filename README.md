@@ -15,7 +15,16 @@
 
 
 ## Deployment
- -- https://marwan820.github.io/phase1-project-countries/
+--Enter the link in a browser and page will deploy
+ https://marwan820.github.io/phase1-project-countries/
+
+ ## Improvements and Future additions
+[] Sort the dropdown menu
+[] Reset the page when main header is clicked 
+[] Add a logo symbol image by the header
+[] clear the search or select menu when item has been rendered
+[] Improved styling, and location for search bar and dropdown
+
 
 
 

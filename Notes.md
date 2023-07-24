@@ -1,7 +1,4 @@
 # ToDo
-
-
-
 - [x] Separate the images --
 - [x] add background color on h1 #title
 - [x] Create a page where a user can search a counries information by entering a country name in a search field
@@ -25,3 +22,6 @@
 - [x]   2 DISTINCT event listeners
 - [x]   One instance of array iteration using available array methods(map, forEach, filter, etc.)
 - [x]   Each event listener must have its own callback function using .addEventListener
+
+
+
