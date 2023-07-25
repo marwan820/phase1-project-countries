@@ -1,5 +1,8 @@
 # Country Wiki
 
+## About
+Country Wiki is a quick country information lookup app
+
  ## Project Status
  -- The project is still in development stage, will make more additions and improvements gradually.
 
