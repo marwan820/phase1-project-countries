@@ -53,7 +53,7 @@ function renderCountriesDropDown(data){
 
 
 function displayValues(data){
-    const countryCard = document.querySelector(".card")
+    const countryCard = document.querySelector("container")
     const cardBody = document.querySelector(".card-body")
     const list = document.querySelector(".list-group")
     cardBody.replaceChildren()
