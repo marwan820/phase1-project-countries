@@ -27,6 +27,7 @@ Country Wiki is a quick country information lookup app
 [] Add a logo symbol image by the header
 [] clear the search or select menu when item has been rendered
 [] Improved styling, and location for search bar and dropdown
+[] Add more data points
 
 
 
