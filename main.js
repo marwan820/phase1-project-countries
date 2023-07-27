@@ -76,6 +76,7 @@ function displayValues(data){
         
     const coatOfArms = document.createElement("img")
     coatOfArms.id = "img coatOfArms"
+
     coatOfArms.src = country.coatOfArms.svg
     coatOfArms.style.width = "10%"
         
