@@ -41,8 +41,10 @@ function getCountries(){
 
 // Render and Iterator functions
 function renderCountriesDropDown(data){
-
-    data.forEach(country => {
+    const sortedData = data.sort((a,b) => a.name.common.localeCompare(b.name.common))
+    
+    
+   sortedData.map(country => {
 
         const option = document.createElement("option")
         option.value = country.name.common
@@ -95,6 +97,8 @@ function displayValues(data){
         
     const currenciesTag = document.createElement("li")
     currenciesTag.class= "list-group-item"
+
+    // Dynamic key, so to return use Object.keys(// pass the object) and the first 
     const currencyKey = Object.keys(country.currencies)[0]
     const currencyName = country.currencies[currencyKey].name
     currenciesTag.textContent = `Currency: ${currencyName}`
