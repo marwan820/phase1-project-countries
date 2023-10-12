@@ -5,7 +5,7 @@
 - [x] Create a selection box, for the user to scroll through the countries by name
 - [] Clean up the code, organize it and leave comments
 - [] create a back to home page, some type click event on the header
-- [] sort the option values alphabatically, a-z 
+- [x] sort the option values alphabetically, a-z 
 - [x] Create a search bar to enter countries name 
 - [] Write a catch message, when a user input doesnt match with database
 - [x] Style it, give it some color and flavor 
